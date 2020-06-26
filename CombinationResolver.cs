@@ -4,9 +4,9 @@
 // Like {1,2,3}, {0,2,8}, {4,6,7}, {1,3,9}...
 // 
 //	Usage:
-//		int[] numbers = new int[] { 0,1,2,3,4,5,6,7,8,9};
+//		int[] numbers = new int[] {0,1,2,3,4,5,6,7,8,9};
 //		int cominationLength = 3;
-//		List<int[]> allCombinations = CombinationResolver.GetAllCombinations(combinationLength, numbers) as List<int[]>;
+//		List<int[]> allCombinations = CombinationResolver<int>.GetAllCombinations(combinationLength, numbers);
 //		foreach (int[] combo in allCombunations) {
 //			Print(combo.ToString());
 //		}
@@ -25,20 +25,19 @@
 //		{7,8,9}
 //
 
-public class CombinationResolver {
+public class CombinationResolver<T> {
 	
-	public static List<int[]> GetAllCombinations (int comboLength, List<Object> elements) {
-		List<int[]> result = new List<int[]> ();
-		
-		List<int[]> comboIndexes = GetComboIndexes(comboLength, elements.Count);
+	public static List<T[]> GetAllCombinations (int comboLength, T[] elements) {
+		List<T[]> result = new List<T[]> ();
+		List<int[]> comboIndexes = GetComboIndexes(comboLength, elements.Length);
 		for (int i = 0; i < comboIndexes.Count; i++) {
-			Object[] combo = new Object[comboLength];
+			T[] combo = new T[comboLength];
 			for (int j = 0; j < comboLength; j++) {
-				combo[j] = comboIndexes[i][elements[j]];
+				combo[j] = elements[comboIndexes[i][j]];
 			}
 			result.Add(combo);
-  		}
-  		return result;
+		}
+		return result;
 	}
 
 	static List<int[]> GetComboIndexes(int comboLength, int elementsCount) {
