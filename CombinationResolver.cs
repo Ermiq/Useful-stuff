@@ -1,5 +1,6 @@
-// Returns a list of int arrays with all the possible unique combination in a given amount of elements with a given combination length.
-// If we have an array of 10 integers, and we need to know how many unique combinations could be made with a length of 3.
+// Returns a list of objects with all the possible unique combination in a given amount of elements with a given combination length.
+// 
+// For example, we have an int array of length 10 and need to get all the unique 3 number combinations available.
 // Like {1,2,3}, {0,2,8}, {4,6,7}, {1,3,9}...
 // 
 //	Usage:
