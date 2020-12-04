@@ -12,7 +12,7 @@ static int GetDayOfWeek(int year, int month, int day, bool sundayFirst) {
 	int dowraw = (d + Math.Floor(2.6 * m - 0.2) - 2 * c + y + Math.Floor(y / 4) + Math.Floor(c / 4));
 
 	// Here we get the remainder of dowraw divided by 7.
-	// Basically, could be just "dowraw % 7"
+	// Basically, could be just "dow = dowraw % 7".
 	int dow = Math.Floor(dowraw / 7);
 	dow = dow * 7;
 	dow = dowraw - dow;
