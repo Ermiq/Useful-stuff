@@ -2,7 +2,7 @@
 // year, month, day - the date.
 // sundayFirst - should be true for the contries where week starts on Sunday
 static int GetDayOfWeek(int year, int month, int day, bool sundayFirst) {
-  int c = y/100;
+	int c = y/100;
 	if (m < 3) {
 		y -= 1;
 		m += 10;
