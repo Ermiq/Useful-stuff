@@ -1,6 +1,9 @@
 // Returns the number of the day in a week.
 // year, month, day - the date.
 // sundayFirst - should be true for the contries where week starts on Sunday
+
+// Based on the article here: https://cs.uwaterloo.ca/~alopez-o/math-faq/node73.html
+
 static int GetDayOfWeek(int year, int month, int day, bool sundayFirst) {
 	int c = y/100;
 	if (m < 3) {
