@@ -1,0 +1,26 @@
+/*
+	Unity's Vector3.SignedAngle() doesn't actually return what it is expected to return.
+	The axis argument in the Vector3.SignedAngle() method only affects the sign of the resulting angle, while
+	the angle value returned is actually the same as the result of Vector3.Angle().
+*/
+
+/// <summary>
+/// This method returns the actual signed angle between direction 'from' and direction 'to' relative to the 'axis'.
+/// The arguments should be normalized vectors (with magnitude 1).
+/// </summary>
+float AngleSigned(Vector3 from, Vector3 to, Vector3 axis, bool clockwise = true)
+{
+	Vector3 right;
+	if (clockwise)
+	{
+		right = Vector3.Cross(to, axis);
+		to = Vector3.Cross(axis, right);
+	}
+	else
+	{
+		right = Vector3.Cross(axis, to);
+		to = Vector3.Cross(right, axis);
+	}
+	float radians = Mathf.Atan2(Vector3.Dot(from, right), Vector3.Dot(from, to));
+	return radians * Mathf.Rad2Deg;
+}
