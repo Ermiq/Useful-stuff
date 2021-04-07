@@ -36,7 +36,7 @@ public static float SmoothTowards(float current, float target, ref float velocit
     float result = current + velocity;
 	
     // Prevent overshooting:
-	if (current < target && target <= result ||
+    if (current < target && target <= result ||
         current <= target && target < result)
         return target;
     else
